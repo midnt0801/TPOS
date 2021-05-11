@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ <parameter name="browser" value="chrome"/>
+  <parameter name="version" value="88.0"/>
+  <parameter name="platform" value="WIN10"/>
+<listeners>	
+<listener class-name="TPOS.LOGIN.Listener"/>
+</listeners>
+	
+  <test name="Validating User login">
+  
+    <classes>
+      <class name="TPOS.LOGIN.LoginHome"/>
+          </classes>
+      </test> 
+
+       <test name="Validating Add New Customer">
+         <classes>
+      <class name="TPOS.SALES.AddNewCustomer"/>
+   </classes>
+   
+      </test>
+   <!-- Test -->
+</suite> <!-- Suite -->
