@@ -4,18 +4,15 @@
   <parameter name="browser" value="chrome"/>
   <parameter name="version" value="88.0"/>
   <parameter name="platform" value="WIN10"/>
-  <listeners>
-    <listener class-name="TPOS.LOGIN.Listener"/>
-  </listeners>
-  <test thread-count="5" name="ReturnsPage(failed)">
+  <test thread-count="5" name="Validating Add New Customer(failed)">
     <classes>
-      <class name="TPOS.SALES.ReturnsPage">
+      <class name="TPOS.CATEGORY.Customer">
         <methods>
+          <include name="AddNewCustomer1" invocation-numbers="0 1 2"/>
+          <include name="customer_url1"/>
           <include name="tearDown"/>
-          <include name="FixKH"/>
-          <include name="initialize"/>
         </methods>
-      </class> <!-- TPOS.SALES.ReturnsPage -->
+      </class> <!-- TPOS.CATEGORY.Customer -->
     </classes>
-  </test> <!-- ReturnsPage(failed) -->
+  </test> <!-- Validating Add New Customer(failed) -->
 </suite> <!-- Failed suite [Suite] -->

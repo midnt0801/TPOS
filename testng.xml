@@ -4,21 +4,17 @@
  <parameter name="browser" value="chrome"/>
   <parameter name="version" value="88.0"/>
   <parameter name="platform" value="WIN10"/>
-<listeners>	
-<listener class-name="TPOS.LOGIN.Listener"/>
-</listeners>
-	
-  <test name="Validating User login">
+
+ <test name="Validating User login">
   
     <classes>
       <class name="TPOS.LOGIN.LoginHome"/>
-          </classes>
+      </classes>
       </test> 
-
        <test name="Validating Add New Customer">
-         <classes>
-      <class name="TPOS.SALES.AddNewCustomer"/>
-   </classes>
+        <classes>
+      	<class name="TPOS.CATEGORY.Customer"/>
+   		</classes>
    
       </test>
    <!-- Test -->

@@ -1,72 +1,213 @@
 package TPOS.CATEGORY;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Date;
-//import java.util.Date;
-import java.util.StringTokenizer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+//import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import TPOS.LOGIN.Login1;
 //import TPOS.SALES.AddNewCustomer;
 import TPOS.Sales.AddCustomer;
 import resources.AddMyCustomer;
 import resources.base;
-import resources.base1;
+
 
 public class Customer extends AddMyCustomer {
 
-	public WebDriver driver;
-		
-	public base base = new base();
+	//public base base = new base();
+	public Logger log =LogManager.getLogger(base.class.getName());
 	
+	public Customer() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+		//base.initializeDriver();
+	}
 
-	 public Logger log =LogManager.getLogger(base.class.getName());
+//	@Test(priority=1)
+//	public void login() throws Exception {
+//		super.login();
+//	}
+	@Test(priority=2)
+ 	 public void customer_url1() throws Exception{
+	 	 AddCustomer l= new AddCustomer(base.driver);
+	 	 Thread.sleep(3000);
+	 	 l.getclickdanhmuc().click();
+	 	 Thread.sleep(3000);
+	 	 l.getclickKhachhang().click();
+	 	 Thread.sleep(3000);
+	 	 l.getclickBtnThemKhachhang().click();
+	 	 Thread.sleep(3000);	 	
 	 
+ 	}
+ 	 
+	@Test(dataProvider="1",priority = 3)
+	public  void AddNewCustomer1(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+		// TODO Auto-generated method stub
+		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+	}
+
+	@DataProvider(name = "1")
+	public Object[][] getData1() {
+		// TODO Auto-generated method stub
+		return super.getData();
+	}
+//	
+//	@Test(priority=3)
+//	 public void customer_ur2() throws Exception{
+//	 	 AddCustomer l= new AddCustomer(base.driver);
+//	 	 Thread.sleep(3000);
+//	 	 l.getclickdanhmuc().click();
+//	 	 Thread.sleep(3000);
+//	 	 l.getclickKhachhang().click();
+//	 	 Thread.sleep(3000);
+//	 	 l.getclickBtnThemKhachhang().click();
+//	 	 Thread.sleep(3000);
+//	 	 base.driver.manage().getCookies();
+//	}
+//	 
+//	@Test(dataProvider="3",priority = 3)
+//	public  void AddNewCustomer2(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//		// TODO Auto-generated method stub
+//		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+//	}
+//
+//	@DataProvider(name = "3")
+//	public Object[][] getData2() {
+//		// TODO Auto-generated method stub
+//		return super.getData();
+//	}
+
+	@AfterTest
+ 	public void tearDown() throws Exception {
+		Thread.sleep(5000);
+		base.driver.quit();
+    }
+
+}
+
+
+
+
+/*
+ * public class EntityCustomer{ String name; ////
+ * 
+ * //get, set }
+ * 
+ * public class EntityProducct{ String name; ////
+ * 
+ * //get, set }
+ * 
+ * public class Data{ List<EntityCustomer> listCus; ///
+ * 
+ * public void readFileExcel(String url) { //doc
+ * 
+ * // truyen data vao list }
+ * 
+ * }
+ * 
+ * public static class Resource{ static Data data; static String url_file1; void
+ * inti() { data.readFileExcelToCus(url_file1); } }
+ * 
+ * Resource.inti();
+ * 
+ * 
+ * Resource.data
+ */
+
+//class base{
+//	int i = 0
+//	
+//	// initDriver
+//	driver = null -->init
+//	
+//	// login
+//	khi chua login --> login
+//	
+//	// close drive
+//	if (i >= 6)
+//			
+//	// capture
+//}
+//
+//////addform
+//
+//class cus{
+//	// declare html
+//	
+//	// function html
+//	
+//	//funtion (EntityCus)
+//}
+//
+//class order{
+//	// 
+//}
+//
+//////test
+//// nhiu form
+//class test_cus{
+//	int arr[] = {1,2,3};
+//	base.init()
+//	base.login()
+//	
+//	
+//	
+//	cus.add1()
+//		if (!arr.indexOf(1)) return
+//		foreach(entityCus i in Resource.data.listCus)
+//			cus.Adddd(i)
+//			cus.submit. // submit
+//			
+//		
+//	cus.add2()
+//	
+//	base.close()
+//}
+//
+//class test_order{
+//	base.init()
+//	base,login()
+//	
+//	order.add()
+//	
+//	base.close()
+//}
+//
+//
+//
+//
+//
+//
+//
+//
 //	 	@BeforeTest
-//	 	public void initialize() throws IOException
-//		{
-//		 
-//		 driver =initializeDriver();
-//			 
+		/*
+		 * public void setDriver() throws IOException { this.driver =
+		 * base.initializeDriver(); }
+		 */
+
+//
+//		@Test(priority = 1)
+//		public void login() throws Exception {
+//	 	
+//			driver.get(base.prop.getProperty("url"));
+//			Login1 l=new Login1(driver);
+//			l.getEmail().sendKeys("admin");
+//			l.getPassword().sendKeys("123123@");
+//			l.getLogin().click();
+//			Thread.sleep(5000);
+//			//l.getQuitAds().click();
+//			//driver.getTitle();
+//			//driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+//		
+//			String expectedUrl = driver.getCurrentUrl();
+//			String actualUrl = "https://tmt30.tpos.vn/#/app/dashboard";
+//			System.out.println(expectedUrl);
+//			System.out.println(actualUrl);
+//			Assert.assertEquals(expectedUrl, actualUrl); 
 //		}
-
-	 	@BeforeTest
-	 	 public void setDriver() throws IOException {
-	 		this.driver = base.initializeDriver();
-		}
-
-
-		@Test(priority = 1)
-			public void login() throws Exception {
-	 	
-			driver.get(base.prop.getProperty("url"));
-			Login1 l=new Login1(driver);
-			l.getEmail().sendKeys("admin");
-			l.getPassword().sendKeys("123123@");
-			l.getLogin().click();
-			Thread.sleep(5000);
-			//l.getQuitAds().click();
-			//driver.getTitle();
-			//driver.get("https://tmt30.tpos.vn/#/app/dashboard");
-		
-			String expectedUrl = driver.getCurrentUrl();
-			String actualUrl = "https://tmt30.tpos.vn/#/app/dashboard";
-			System.out.println(expectedUrl);
-			System.out.println(actualUrl);
-			Assert.assertEquals(expectedUrl, actualUrl); }
 //			try{			
 //			     
 //		        File file = new File("Cookies.data");							
@@ -101,35 +242,5 @@ public class Customer extends AddMyCustomer {
 //	 	 	}	
 //			
 		 
-	 	 @Test(priority=2)
-	 	 public void customer() throws Exception{
-		 	 AddCustomer l= new AddCustomer(driver);
-		 	 Thread.sleep(3000);
-		 	 l.getclickdanhmuc().click();
-		 	 Thread.sleep(3000);
-		 	 l.getclickKhachhang().click();
-		 	 Thread.sleep(3000);
-		 	 l.getclickBtnThemKhachhang().click();
-		 	 Thread.sleep(3000);
-		 	 driver.manage().getCookies();
-	 	}
-	 	 
-		@Test(dataProvider="2",priority = 3)
-		public  void AddNewCustomer(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
-			// TODO Auto-generated method stub
-			super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
-		}
+	 
 
-		@DataProvider(name = "2")
-		public Object[][] getData() {
-			// TODO Auto-generated method stub
-			return super.getData();
-		}
-
-		@AfterTest
-	 	public void tearDown() throws Exception {
-			Thread.sleep(5000);
-
-	          driver.quit();
-	    }
-}

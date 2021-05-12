@@ -21,7 +21,7 @@ public class AddCustomer {
 	
 	
 	//DANH MUC KHACH HANG
-	By clickdanhmuc=By.xpath("//*[@id=\"app\"]/div[2]/div/div[1]/nav/ul/li[11]/a");
+	By clickdanhmuc=By.xpath("//body/div[@id='app']/div[2]/div[1]/div[1]/nav[1]/ul[1]/li[11]/a[1]");
 	By clickKhachhang=By.xpath("//*[@id=\"app\"]/div[2]/div/div[1]/nav/ul/li[11]/ul/li[5]/a");
 	By clickBtnThemKhachhang=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div/div[1]/div[1]/div/div/button[1]");
 	By clickLuuThemkhachhang1=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]");

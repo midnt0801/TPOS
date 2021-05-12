@@ -24,19 +24,28 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 //
 //import dataDriven.DataCustomer;
 //import dataDriven.dataLogin;
+//import org.testng.Assert;
+//
+//import TPOS.LOGIN.Login1;
+//import TPOS.LOGIN.LoginHome;
 
 	public class base {
-		static WebDriver driver;
-		
-		public static WebDriver getDriver1(){
-			if(driver==null){
-				
-				driver = new ChromeDriver();
+		public WebDriver driver;
+		public Properties prop;
+		/*
+		 * public static WebDriver getDriver1(){ if(driver==null){
+		 * 
+		 * driver = new ChromeDriver(); } return driver; }
+		 */
+		public base() 
+		{
+			try {
+				this.initializeDriver();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			return driver;
 		}
-	
-		public static Properties prop;
 	
 		public WebDriver initializeDriver() throws IOException
 		{
@@ -48,7 +57,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 			String browserName=prop.getProperty("browser");
 			System.out.println(browserName);
 
-		if(browserName.equals("chrome"))
+			if(browserName.equals("chrome"))
 			{
 				System.setProperty("webdriver.chrome.driver", "C:\\lib selenium\\chromedriver.exe");
 			 
@@ -58,7 +67,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 		//execute in chrome driver
 	
 			}
-		else if (browserName.equals("firefox"))
+			else if (browserName.equals("firefox"))
 			{
 				driver= new FirefoxDriver();
 				//firefox code
@@ -72,11 +81,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 			return driver;
 
 		}
-
+		
 		public String getScreenShotPath(String testCaseName,WebDriver driver) throws IOException
 		{
-			TakesScreenshot ts=(TakesScreenshot) driver;
-			File source =ts.getScreenshotAs(OutputType.FILE);
+			TakesScreenshot scrShot =((TakesScreenshot)driver);
+			File source =scrShot.getScreenshotAs(OutputType.FILE);
 			String destinationFile = System.getProperty("user.dir")+"\\Report_picture\\"+testCaseName+".png";
 			FileUtils.copyFile(source,new File(destinationFile));
 			return destinationFile;

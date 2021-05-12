@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TPOS.CATEGORY.Customer">
+      <class name="TPOS.LOGIN.ForgetPwd1">
         <methods>
-          <include name="setDriver"/>
-          <include name="AddNewCustomer" invocation-numbers="0 1 2"/>
-          <include name="tearDown"/>
+          <include name="getemailsucessful"/>
+          <include name="initialize"/>
         </methods>
-      </class> <!-- TPOS.CATEGORY.Customer -->
+      </class> <!-- TPOS.LOGIN.ForgetPwd1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
