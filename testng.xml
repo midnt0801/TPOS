@@ -4,18 +4,19 @@
  <parameter name="browser" value="chrome"/>
   <parameter name="version" value="88.0"/>
   <parameter name="platform" value="WIN10"/>
-
- <test name="Validating User login">
+<listeners>	
+<listener class-name="TPOS.LOGIN.Listener"/>
+</listeners>
+ <test name="Validating Bill of Delivery">
   
-    <classes>
-      <class name="TPOS.LOGIN.LoginHome"/>
-      </classes>
-      </test> 
-       <test name="Validating Add New Customer">
-        <classes>
-      	<class name="TPOS.CATEGORY.Customer"/>
-   		</classes>
+   <classes>
+      
+      <class name="SalesPage_ThemHD.Themkhachhang()"></class>
+      <class name="TPOS.SALES.BillofDelivery"></class>
+      
+   </classes>
    
       </test>
    <!-- Test -->
 </suite> <!-- Suite -->
+                           

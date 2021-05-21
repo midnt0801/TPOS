@@ -16,46 +16,21 @@ import resources.base;
 
 public class Customer extends AddMyCustomer {
 
-	//public base base = new base();
-	public Logger log =LogManager.getLogger(base.class.getName());
-	
+//	//public base base = new base();
+//	public Logger log =LogManager.getLogger(base.class.getName());
+//	
 	public Customer() throws IOException {
 		super();
 		// TODO Auto-generated constructor stub
-		//base.initializeDriver();
+		base.initializeDriver();
 	}
-
+	//DANHMUC//
 //	@Test(priority=1)
 //	public void login() throws Exception {
 //		super.login();
 //	}
-	@Test(priority=2)
- 	 public void customer_url1() throws Exception{
-	 	 AddCustomer l= new AddCustomer(base.driver);
-	 	 Thread.sleep(3000);
-	 	 l.getclickdanhmuc().click();
-	 	 Thread.sleep(3000);
-	 	 l.getclickKhachhang().click();
-	 	 Thread.sleep(3000);
-	 	 l.getclickBtnThemKhachhang().click();
-	 	 Thread.sleep(3000);	 	
-	 
- 	}
- 	 
-	@Test(dataProvider="1",priority = 3)
-	public  void AddNewCustomer1(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
-		// TODO Auto-generated method stub
-		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
-	}
-
-	@DataProvider(name = "1")
-	public Object[][] getData1() {
-		// TODO Auto-generated method stub
-		return super.getData();
-	}
-//	
-//	@Test(priority=3)
-//	 public void customer_ur2() throws Exception{
+//	@Test(priority=2)
+// 	 public void customer_url1() throws Exception{
 //	 	 AddCustomer l= new AddCustomer(base.driver);
 //	 	 Thread.sleep(3000);
 //	 	 l.getclickdanhmuc().click();
@@ -63,33 +38,228 @@ public class Customer extends AddMyCustomer {
 //	 	 l.getclickKhachhang().click();
 //	 	 Thread.sleep(3000);
 //	 	 l.getclickBtnThemKhachhang().click();
+//	 	 Thread.sleep(3000);	 	
+//	 
+// 	}
+// 	 
+//	@Test(dataProvider="1",priority = 3)
+//	public  void AddNewCustomer1(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//		// TODO Auto-generated method stub
+//		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+//	}
+//
+//	@DataProvider(name = "1")
+//	public Object[][] getData1() {
+//		// TODO Auto-generated method stub
+//		return super.getData();
+//	}
+	
+	
+	//BANHANG//
+	@Test(priority=3)
+	 public void customer_url2() throws Exception{
+	 	 AddCustomer l = new AddCustomer(base.driver);
+	 	 Thread.sleep(3000);
+	 	 l.getclickbanhang().click();
+	 	 Thread.sleep(3000);
+	 	 l.getclickmucbanhang().click();
+	 	 Thread.sleep(3000);
+	 	 l.getclickThemKHtrongbanhang().click();
+	 	 Thread.sleep(3000);
+	 	 l.getBtnThemKHM().click();
+	}
+	 
+	@Test(dataProvider="3",priority = 4)
+	public  void AddNewCustomer2(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+		// TODO Auto-generated method stub
+		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+	}
+
+	@DataProvider(name = "3")
+	public Object[][] getData2() {
+		// TODO Auto-generated method stub
+		return super.getData();
+	}
+
+	@AfterTest
+ 	public void tearDown() throws Exception {
+		Thread.sleep(3000);
+		//base.driver.quit();
+		base.driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+	
+    }
+	//TRAHANG
+//	@Test(priority=2)
+//	 public void customer_url3() throws Exception{
+//	 	 AddCustomer l = new AddCustomer(base.driver);
 //	 	 Thread.sleep(3000);
-//	 	 base.driver.manage().getCookies();
+//	 	 l.getclickbanhang().click();
+//	 	 Thread.sleep(3000);
+//	 	 l.getclickmuctrahang().click();
+//	 	 Thread.sleep(3000);
+//	 	 l.getclickThemKHtrongtrahang().click();
+//	 	 Thread.sleep(3000);
+//	 	 l.getBtnThemKHM().click();
 //	}
 //	 
-//	@Test(dataProvider="3",priority = 3)
-//	public  void AddNewCustomer2(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//	@Test(dataProvider="3",priority = 4)
+//	public  void AddNewCustomer3(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
 //		// TODO Auto-generated method stub
 //		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
 //	}
 //
 //	@DataProvider(name = "3")
-//	public Object[][] getData2() {
+//	public Object[][] getData3() {
 //		// TODO Auto-generated method stub
 //		return super.getData();
 //	}
+//
+//	@AfterTest
+//	public void tearDown3() throws Exception {
+//		Thread.sleep(3000);
+//		//base.driver.quit();
+//		base.driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+//	
+//   }
+	
 
-	@AfterTest
- 	public void tearDown() throws Exception {
-		Thread.sleep(5000);
-		base.driver.quit();
-    }
+	//HOADONGIAOHANG
+//	@Test(priority=2)
+//	public void customer_url4() throws Exception{
+//		 AddCustomer l = new AddCustomer(base.driver);
+//		 Thread.sleep(3000);
+//		 l.getclickbanhang().click();
+//		 Thread.sleep(3000);
+//		 l.getclickmuchoadongiaohang().click();
+//		 Thread.sleep(3000);
+//		 l.getclickthemhoadongiaohang().click();
+//		 Thread.sleep(3000);
+//		 l.getBtnThemKHM().click();
+//	}
+//	
+//	@Test(dataProvider="3",priority = 4)
+//	public  void AddNewCustomer4(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//		// TODO Auto-generated method stub
+//		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+//	}
+//	
+//	@DataProvider(name = "3")
+//	public Object[][] getData4() {
+//		// TODO Auto-generated method stub
+//		return super.getData();
+//	}
+//	
+//	@AfterTest
+//	public void tearDown4() throws Exception {
+//		Thread.sleep(3000);
+//		//base.driver.quit();
+//		base.driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+//	
+//	}
+//
+//	//BAOGIA
+//	@Test(priority=2)
+//	public void customer_url5() throws Exception {
+//		 AddCustomer l = new AddCustomer(base.driver);
+//		 Thread.sleep(3000);
+//		 l.getclickbaogia().click();
+//		 Thread.sleep(3000);
+//		 l.getclickthembaogia().click();
+//		 Thread.sleep(3000);
+//		 l.getclickthemkhtrongbaogia().click();
+//	}
+//	
+//	@Test(dataProvider="3",priority = 4)
+//	public  void AddNewCustomer5(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//		// TODO Auto-generated method stub
+//		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+//	}
+//	
+//	@DataProvider(name = "3")
+//	public Object[][] getData5() {
+//		// TODO Auto-generated method stub
+//		return super.getData();
+//	}
+//	
+//	@AfterTest
+//	public void tearDown5() throws Exception {
+//		Thread.sleep(3000);
+//		//base.driver.quit();
+//		base.driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+//	
+//	}
 
+	// DONDATHANG
+//	@Test(priority=2)
+//	public void customer_url6() throws Exception {
+//		 AddCustomer l = new AddCustomer(base.driver);
+//		 Thread.sleep(3000);
+//		 l.getclickdondathang().click();
+//		 Thread.sleep(3000);
+//		 l.getclickthemdondathang().click();
+//		 Thread.sleep(3000);
+//		 l.getclickthemkhtrongddh().click();
+//	}
+//	
+//	@Test(dataProvider="3",priority = 4)
+//	public  void AddNewCustomer6(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//		// TODO Auto-generated method stub
+//		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+//	}
+//	
+//	@DataProvider(name = "3")
+//	public Object[][] getData6() {
+//		// TODO Auto-generated method stub
+//		return super.getData();
+//	}
+//	
+//	@AfterTest
+//	public void tearDown6() throws Exception {
+//		Thread.sleep(3000);
+//		//base.driver.quit();
+//		base.driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+//	
+//	}
+//	//SALEONLINE
+//	@Test(priority=2)
+//	public void customer_url7() throws Exception {
+//		 AddCustomer l = new AddCustomer(base.driver);
+//		 Thread.sleep(3000);
+//		 l.getclicksaleonline().click();
+//		 Thread.sleep(3000);
+//		 l.getclickthemdondathang().click();
+//		 Thread.sleep(3000);
+//		 l.getclickmucdonhang().click();
+//		 Thread.sleep(3000);
+//		 l.getclickchondonhang().click();
+//		 Thread.sleep(2000);
+//		 l.getclicktaohdtrongso().click();
+//		 Thread.sleep(3000);
+//		 l.getBtnThemKHM().click();
+//	}
+//	
+//	@Test(dataProvider="3",priority = 4)
+//	public  void AddNewCustomer7(String Customer,/* String date,*/String ContactNumber, String Email,String Street, String City,String District,String Commune) throws Exception, IOException {
+//		// TODO Auto-generated method stub
+//		super.AddNewCustomer(Customer, /*data,*/ContactNumber,Email,Street,City,District,Commune);
+//	}
+//	
+//	@DataProvider(name = "3")
+//	public Object[][] getData7() {
+//		// TODO Auto-generated method stub
+//		return super.getData();
+//	}
+//	
+//	@AfterTest
+//	public void tearDown7() throws Exception {
+//		Thread.sleep(3000);
+//		//base.driver.quit();
+//		base.driver.get("https://tmt30.tpos.vn/#/app/dashboard");
+//	
+//	}
+//
+//}
 }
-
-
-
-
 /*
  * public class EntityCustomer{ String name; ////
  * 

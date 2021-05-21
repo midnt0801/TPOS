@@ -7,9 +7,10 @@ import org.testng.Assert;
 import TPOS.LOGIN.Login1;
 import TPOS.Sales.AddCustomer;
 import dataDriven.DataCustomer;
+import dataDriven.DataCustomerFail;
 
 public class AddMyCustomer {
-	public  base base  = new base();
+//	/public  base base  = new base();
 	
 	public AddMyCustomer() throws IOException {
 		/*
@@ -28,28 +29,29 @@ public class AddMyCustomer {
 //		l.getLogin().click();
 //		Thread.sleep(5000);
 //	
-//		String expectedUrl = base.driver.getCurrentUrl();
-//		String actualUrl = "https://tmt30.tpos.vn/#/app/dashboard";
+//		String expectedUrl = "https://tmt30.tpos.vn/#/app/dashboard";
+//		String actualUrl = base.driver.getCurrentUrl();
 //		System.out.println(expectedUrl);
 //		System.out.println(actualUrl);
 //		Assert.assertEquals(expectedUrl, actualUrl); 
 //	}
+	//THÊM FIlE EXCEL ĐÚNG 
 	//@SuppressWarnings("static-access")
-	//@Test(dataProvider="2",priority = 3)
+	//@Test(dataProvider="3",priority = 4)
 	public  void AddNewCustomer(String Customer , /*String date,*/String ContactNumber, String Email,String Street, String City, String District, String Commune) throws Exception,IOException
 	{
-		base.driver.get(base.prop.getProperty("https://tmt30.tpos.vn/#/app/dashboard"));
+		//base.driver.get(base.prop.getProperty("url1"));
 		AddCustomer l = new AddCustomer(base.driver);
 		l.getNhapten().sendKeys(Customer);
 		
 		l.getDienThoai().sendKeys(ContactNumber);
-		l.getemail1().sendKeys(Email);
+		l.getEmail().sendKeys(Email);
 		Thread.sleep(3000);
 		
-		l.getstreet1().sendKeys(Street);
-		l.getcity1().sendKeys(City);
-		l.getdistrict1().sendKeys(District);
-		l.getCommune1().sendKeys(Commune);
+		l.getstreet().sendKeys(Street);
+		l.getcity().sendKeys(City);
+		l.getdistrict().sendKeys(District);
+		l.getcommune().sendKeys(Commune);
 		boolean checkCustomer= false;
 		if (Customer.length() <=100)
 		{
@@ -92,20 +94,20 @@ public class AddMyCustomer {
 		Assert.assertTrue(checkCommune);
 		Assert.assertTrue(checkContactNumber);
 		System.out.println("Test completed");
-		l.getclickLuuThemkhachhang1().click();
+		l.getBtnLuuKH().click();
 		Thread.sleep(5000);
-		l.getclickThemlaikhachhang().click();
+		l.getBtnThemKHM().click();
 		Thread.sleep(3000);
 		String actualUrl = base.driver.getCurrentUrl();
-		String expectedUrl = "https://tmt30.tpos.vn/#/app/partner/customer/form";
+		String expectedUrl = "https://tmt30.tpos.vn/#/app/fastsaleorder/invoiceform1";
 		System.out.println(actualUrl);
 		System.out.println(expectedUrl);
 		Assert.assertEquals(actualUrl,expectedUrl);
 	}
 	
-	//@DataProvider(name = "2")
+	//@DataProvider(name = "3")
 	public Object[][] getData() {
-		String excelPath = "C:\\Users\\TMT\\eclipse-workspace\\LOGIN\\data\\CreateCustomer1.xlsx";
+		String excelPath = "C:\\Users\\TMT\\eclipse-workspace\\TPOSVN\\data\\Customerdiscorrect.xlsx";
 		Object data[][] = testData(excelPath, "Sheet1");
 		return data;
 	}
@@ -133,7 +135,111 @@ public class AddMyCustomer {
 		}
 		return data;
 	}
-
+	
+//	//THÊM FILE EXCEL SAI
+//	//@SuppressWarnings("static-access")
+//		//@Test(dataProvider="4",priority = 5)
+//		public  void AddNewCustomer1(String Customer , /*String date,*/String ContactNumber, String Email,String Street, String City, String District, String Commune) throws Exception,IOException
+//		{
+//			//base.driver.get(base.prop.getProperty("url1"));
+//			AddCustomer l = new AddCustomer(base.driver);
+//			l.getNhapten().sendKeys(Customer);
+//			
+//			l.getDienThoai().sendKeys(ContactNumber);
+//			l.getEmail().sendKeys(Email);
+//			Thread.sleep(3000);
+//			
+//			l.getstreet().sendKeys(Street);
+//			l.getcity().sendKeys(City);
+//			l.getdistrict().sendKeys(District);
+//			l.getcommune().sendKeys(Commune);
+//			boolean checkCustomer= false;
+//			if (Customer.length() <=100)
+//			{
+//				checkCustomer = true;
+//			}
+//			boolean checkContactNumber= false;
+//			if(ContactNumber.length() <=100)
+//			{
+//				checkContactNumber =true;
+//			}
+//			boolean checkEmail= false;
+//			if(Email.length() <=100)
+//			{
+//				checkEmail =true;
+//			}
+//			boolean checkStreet= false;
+//			if(Street.length() <=100)
+//			{
+//				checkStreet =true;
+//			}
+//			boolean checkCity= false;
+//			if(City.length() <=200)
+//			{
+//				checkCity =true;
+//			}boolean checkDistrict= false;
+//			if(District.length() <=100)
+//			{
+//				checkDistrict =true;
+//			}boolean checkCommune= false;
+//			if(Commune.length() <=100)
+//			{
+//				checkCommune =true;
+//			}
+//			Assert.assertTrue(checkCustomer);
+//			Assert.assertTrue(checkContactNumber);
+//			Assert.assertTrue(checkEmail);
+//			Assert.assertTrue(checkStreet);
+//			Assert.assertTrue(checkCity);
+//			Assert.assertTrue(checkDistrict);
+//			Assert.assertTrue(checkCommune);
+//			Assert.assertTrue(checkContactNumber);
+//			System.out.println("Test completed");
+//			Thread.sleep(3000);
+//			l.getBtnLuuKH().click();
+//			String actualUrl1 =l.gettexttravenhapten().getText();
+//			String expectedUrl1 = "Nhập tên";
+//			System.out.println(actualUrl1);
+//			System.out.println(expectedUrl1);
+//			Assert.assertEquals(actualUrl1,expectedUrl1);
+//			Thread.sleep(5000);
+//			l.getbtndong().click();
+//			Thread.sleep(5000);
+//			l.getBtnThemKHM().click();
+//			Thread.sleep(3000);
+//		
+//		}
+//		
+//		//@DataProvider(name = "4")
+//		public Object[][] getData1() {
+//			String excelPath = "C:\\Users\\TMT\\eclipse-workspace\\TPOSVN\\data\\Customerdiscorrect.xlsx";
+//			Object data[][] = testData1(excelPath, "Sheet1");
+//			return data;
+//		}
+//		
+//		@SuppressWarnings("static-access")
+//		public static Object[][] testData1(String excelPath, String sheetName) {
+//
+//			DataCustomerFail excel = new DataCustomerFail(excelPath, sheetName);
+//
+//			int rowCount = excel.getRowCount();
+//			int colCount = excel.getColCount();
+//
+//			Object data[][] = new Object[rowCount - 1][colCount];
+//
+//			for (int i = 1; i < rowCount; i++) {
+//			
+//				for (int j = 0; j < colCount; j++) {
+//
+//					String cellDataString = excel.getCellDataString(i, j);
+//					System.out.print(cellDataString + " | ");
+//					data[i - 1][j] = cellDataString;
+//
+//				}
+//				System.out.println();
+//			}
+//			return data;
+//		}
 
 }
 	

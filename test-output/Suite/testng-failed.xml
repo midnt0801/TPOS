@@ -4,15 +4,30 @@
   <parameter name="browser" value="chrome"/>
   <parameter name="version" value="88.0"/>
   <parameter name="platform" value="WIN10"/>
-  <test thread-count="5" name="Validating Add New Customer(failed)">
+  <listeners>
+    <listener class-name="TPOS.LOGIN.Listener"/>
+  </listeners>
+  <test thread-count="5" name="Validating Bill of Delivery(failed)">
     <classes>
+      <class name="TPOS.SALES.BillofDelivery">
+        <methods>
+          <include name="KiemtrabtnTrolainTaifilemau"/>
+          <include name="setDriver"/>
+        </methods>
+      </class> <!-- TPOS.SALES.BillofDelivery -->
       <class name="TPOS.CATEGORY.Customer">
         <methods>
-          <include name="AddNewCustomer1" invocation-numbers="0 1 2"/>
-          <include name="customer_url1"/>
+          <include name="AddNewCustomer2" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26"/>
+          <include name="customer_url2"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- TPOS.CATEGORY.Customer -->
+      <class name="TPOS.SALES.SalesPage_ThemHD">
+        <methods>
+          <include name="tearDown"/>
+          <include name="Detrongkhachhang"/>
+        </methods>
+      </class> <!-- TPOS.SALES.SalesPage_ThemHD -->
     </classes>
-  </test> <!-- Validating Add New Customer(failed) -->
+  </test> <!-- Validating Bill of Delivery(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -8,8 +8,9 @@ import org.openqa.selenium.WebElement;
 public class Returns {
 	public WebDriver driver;
 	
-	By BanhangTQ=By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]");
-	By Returns1=By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/nav[1]/ul[1]/li[3]/ul[1]/li[2]/a[1]");
+	By clickbanhang=By.xpath("//*[@id=\"app\"]/div[2]/div/div[1]/nav/ul/li[3]/a");
+	By clickmuctrahang=By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/nav[1]/ul[1]/li[3]/ul[1]/li[2]/a[1]");
+	By clickThemKHtrongtrahang=By.xpath("//button[@type='button'][contains(.,'Thêm')]");
 	By BtnThem=By.xpath("//button[@type='button'][contains(.,'Thêm')]");
 	By Khachhangbtn=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/span[2]/span[1]");
 	By Khachhangt3=By.xpath("/html/body/div[5]/div/div[2]/ul/li[2]");
@@ -75,7 +76,12 @@ public class Returns {
 		this.driver=driver;
 		
 	}
-	public WebElement getBtnLuuThemKHN() 
+	public WebElement getclickThemKHtrongtrahang() 
+	 {
+	
+		 return driver.findElement(clickThemKHtrongtrahang);
+	}
+	public WebElement getBtnLuuThemKHM() 
 	 {
 	
 		 return driver.findElement(BtnLuuThemKHM);
@@ -217,16 +223,16 @@ public class Returns {
 	
 		 return driver.findElement(XoaKH);
 	}
-	 public WebElement getBanhangTQ() 
+	 public WebElement getclickbanhang() 
 	 {
 	
-		 return driver.findElement(BanhangTQ);
+		 return driver.findElement(clickbanhang);
 	}
 		
-	 public WebElement getReturns1() 
+	 public WebElement getclickmuctrahang() 
 	 {
 	
-		 return driver.findElement(Returns1);
+		 return driver.findElement(clickmuctrahang);
 	}
 	
 	

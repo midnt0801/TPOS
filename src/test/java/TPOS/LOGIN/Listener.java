@@ -2,7 +2,7 @@ package TPOS.LOGIN;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -14,15 +14,14 @@ import com.aventstack.extentreports.Status;
 import resources.ExtentReporterNG;
 import resources.base;
 
-public class Listener extends base implements ITestListener {
+public class Listener implements ITestListener {
 	ExtentTest test;
-	ExtentReports extent=ExtentReporterNG.getReportObject();
-	ThreadLocal<ExtentTest> extentTest =new ThreadLocal<ExtentTest>();
+	ExtentReports extent = ExtentReporterNG.getReportObject();
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
 		test= extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
-		
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -32,21 +31,25 @@ public class Listener extends base implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		//Screenshot
+		// Screenshot
 		extentTest.get().fail(result.getThrowable());
-		WebDriver driver =null;
-		String testMethodName =result.getMethod().getMethodName();
+		//WebDriver driver = null;
+		String testMethodName = result.getMethod().getMethodName();
 		
-		try {
-			driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-		} catch(Exception e)
+//		try 
+//		{
+//			driver =(WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+//		} 
+//		catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}
+
+		try 
 		{
-			
-		}
-		try {
-			extentTest.get().addScreenCaptureFromPath(getScreenShotPath(testMethodName,driver), result.getMethod().getMethodName());
-			
-		} catch (IOException e) {
+			extentTest.get().addScreenCaptureFromPath(base.getScreenShotPath(testMethodName), testMethodName);
+		} 
+		catch (IOException e) { 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -71,6 +74,5 @@ public class Listener extends base implements ITestListener {
 		// TODO Auto-generated method stub
 		extent.flush();
 	}
-
 }
 
