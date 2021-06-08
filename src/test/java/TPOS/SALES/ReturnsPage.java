@@ -5,10 +5,13 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import org.testng.Assert;
+import org.testng.TestNG;
 //import org.testng.ITestResult;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import TPOS.LOGIN.Listener;
 import TPOS.LOGIN.Login1;
 //import TPOS.Sales.AddCustomer;
 
@@ -17,6 +20,15 @@ import resources.base;
 //import org.openqa.selenium.Keys;
 
 public class ReturnsPage<Khachhang> {
+	static TestNG testNg;
+	public static void main(String args[]) {
+		Listener ext=new Listener();
+		testNg = new TestNG();
+		testNg.setTestClasses(new Class[] {SalesPage_ThemHD.class});
+		testNg.addListener(ext);
+		testNg.run();
+		}
+	
 	public static Logger log =LogManager.getLogger(base.class.getName());
 	@BeforeTest
 	public void initialize() throws IOException
@@ -58,19 +70,19 @@ public class ReturnsPage<Khachhang> {
 		//l.getBtnThemKHM().click();
 	}
 
-	//Customer
-	@Test(priority = 3)
-	public void LetEmpty() throws Exception {
-		Returns l = new Returns(base.driver);
-		Thread.sleep(3000);
-		l.getSanpham1().click();
-		Thread.sleep(5000);
-		String actual=l.getTitle().getText();
-	
-		String expect="Chọn khách hàng";
-		Assert.assertEquals(actual, expect);
-		
-	}
+//	//Customer
+//	@Test(priority = 3)
+//	public void LetEmpty() throws Exception {
+//		Returns l = new Returns(base.driver);
+//		Thread.sleep(3000);
+//		l.getSanpham1().click();
+//		Thread.sleep(5000);
+//		String actual=l.getTitle().getText();
+//	
+//		String expect="Chọn khách hàng";
+//		Assert.assertEquals(actual, expect);
+//		
+//	}
 /*
 	@Test(priority = 4)
 	public void ChoosenclearKHC() throws Exception {
@@ -205,8 +217,17 @@ public class ReturnsPage<Khachhang> {
 	}*/
 	//Save
 	@Test(priority=3)
-	public void SaveKH() throws Exception{
+	public void LuuTraHang() throws Exception{
 		Returns l= new Returns(base.driver);
+		l.getKhachhangbtn().click();
+		Thread.sleep(3000);
+		l.getKhachhangt1().click();
+		Thread.sleep(3000);
+		l.getBanggia().click();
+		Thread.sleep(3000);
+		l.getBanggia1().click();
+		Thread.sleep(3000);
+		
 		l.getNgGH().sendKeys("Lê Tâm");
 		Thread.sleep(3000);
 		l.getSanpham1().click();

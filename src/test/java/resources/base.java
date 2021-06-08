@@ -1,24 +1,32 @@
 package resources;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import javax.activation.DataHandler;
-
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
+
+import org.testng.SkipException;
+
+import org.testng.annotations.Test;
+
 public class base {
+	
 	public static WebDriver driver;
 	public static Properties prop;
 	
+
 	public base()
 	{
 		try {
@@ -59,16 +67,67 @@ public class base {
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-	//,WebDriver driver
-	
-	public static String getScreenShotPath(String testCaseName) throws IOException
-	{
-		TakesScreenshot scrShot =((TakesScreenshot)driver);
-		File source =scrShot.getScreenshotAs(OutputType.FILE);
-		String destinationFile = System.getProperty("user.dir")+"\\Report_picture\\"+testCaseName+".png";
-		FileUtils.copyFile(source,new File(destinationFile));
-		return destinationFile;
+	@Test 
+	public void testSucessful() {
+		System.out.println("Excuting Successful Test Method");
 	}
+	@Test
+	public void testFailed() {
+		System.out.println("Excuting Failed Test Method");
+		Assert.fail("Executing Failed Test Method");
+		
+	}
+	@Test
+	public void testSkipped() {
+		System.out.println("Executing| Test Method");
+		throw new SkipException("Executing Skipped Test Method");
+	}
+
+	
+	
+	
+//public static String takeScreenshot(WebDriver driver,String methodName) {
+//	String fileName=getScreenshotName(methodName);
+//	String directory= System.getProperty("user.dir")+"/screenshots/";
+//	new File(directory).mkdirs();
+//	String path=directory+fileName;
+//	try 
+//	{
+//		File screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		FileUtils.copyFile(screenshot, new File(path));
+//		System.out.println("**********************************");
+//		System.out.println("Screenshot stored at"+ path);
+//		System.out.println("**********************************");
+//	}
+//	catch(Exception e) {
+//		e.printStackTrace();
+//		
+//	}
+//	
+//	return path;
+//}
+
+public static String getScreenshotName(String methodName) {
+	Date d =new Date();
+	String fileName=methodName+""+d.toString().replace(":", "_").replace("_","_")+".html";
+	return fileName;
+	}
+	
+
+public static String takeScreenshot(WebDriver driver, String screenshotName) throws IOException {
+	String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+	TakesScreenshot ts = (TakesScreenshot) driver;
+	File source = ts.getScreenshotAs(OutputType.FILE);
+
+	// after execution, you could see a folder "FailedTestsScreenshots" under src folder
+	String destination = System.getProperty("user.dir") + "/screenshots/" + screenshotName + dateName + ".png";
+	File finalDestination = new File(destination);
+	FileUtils.copyFile(source, finalDestination);
+	return destination;
+}
+}
+	
+	
 //	//After complete execution send pdf report by email
 //		@AfterSuite
 //		public void tearDown(){
@@ -139,5 +198,7 @@ public class base {
 //	        }
 //	    }
 
-	}
+	
+
+	
 

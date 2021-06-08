@@ -107,7 +107,7 @@ public class AddMyCustomer {
 	
 	//@DataProvider(name = "3")
 	public Object[][] getData() {
-		String excelPath = "C:\\Users\\TMT\\eclipse-workspace\\TPOSVN\\data\\Customerdiscorrect.xlsx";
+		String excelPath = "C:\\Users\\TMT\\eclipse-workspace\\TPOSVN\\data\\Customercorrect.xlsx";
 		Object data[][] = testData(excelPath, "Sheet1");
 		return data;
 	}

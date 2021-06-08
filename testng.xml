@@ -7,16 +7,32 @@
 <listeners>	
 <listener class-name="TPOS.LOGIN.Listener"/>
 </listeners>
- <test name="Validating Bill of Delivery">
-  
-   <classes>
-      
-      <class name="SalesPage_ThemHD.Themkhachhang()"></class>
-      <class name="TPOS.SALES.BillofDelivery"></class>
-      
-   </classes>
-   
+	  <test name="Validating Add Group of Products">
+   	  <classes>
+      <class name="TPOS.CATEGORY.GroupofProducts"></class>
+      </classes>
       </test>
+  	  <test name="Validating Add Products">
+      <classes>
+      <class name="TPOS.CATEGORY.Products"/>
+      </classes>
+      </test> 
+      <test name="Validating Add SalePage">
+      <classes>
+      <class name="TPOS.SALES.SalesPage_ThemHD"/>
+      </classes>
+      </test> 
+       <test name="Validating Payment">
+      <classes>
+      <class name="TPOS.SALES.SalesPage_ThemHD"/>
+      </classes>
+      </test> 
+      <test name="Validating Add ReturnsPage">
+      <classes>
+      <class name="TPOS.SALES.ReturnsPage"/>
+      </classes>
+      </test> 
+      
    <!-- Test -->
 </suite> <!-- Suite -->
                            

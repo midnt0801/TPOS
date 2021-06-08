@@ -27,11 +27,11 @@ public class AddCustomer {
 	By btndong=By.xpath("/html/body/div[1]/div/div/div[3]/div/footer/button[2]");
 	By texttravenhapten=By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div[2]/span");
 	//Mục bán hàng:(BANHANG-TRAHANG-HOADONGIAOHANG-LICHSUDOISOAT)
-	By clickbanhang=By.xpath("//*[@id=\"app\"]/div[2]/div/div[1]/nav/ul/li[3]/a");
+	By clickbanhang=By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/nav[1]/ul[1]/li[3]/a[1]");
 	
 	//BANHANG
 	By clickmucbanhang=By.xpath("//*[@id=\"app\"]/div[2]/div/div[1]/nav/ul/li[3]/ul/li[1]/a");
-	By clickThemKHtrongbanhang=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div[1]/div[1]/div[1]/div/div/button");
+	By clickThemKHtrongbanhang=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]");
 	By clickthongtin=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div/div[2]/div/ul/li[1]/a");
 	By clickthongtingiaohang=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div/div[2]/div/ul/li[2]/a");
 	By clickthongtinnguoinhan=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div/div[2]/div/ul/li[3]/a");
@@ -60,6 +60,14 @@ public class AddCustomer {
 	By clicktaimauexcel=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div[2]/div[3]/div/a");
 	By clickLuuNhapexcel=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div[2]/div[5]/button[1]");
 	By thongbaoluuthanhcong=By.xpath("//*[@id=\"toast-container\"]/div/div");
+	By sanphamthanhtoan=By.xpath("//*[@id=\"vm.grid\"]/div[2]/table/tbody/tr[3]/td[3]");
+	By btnthanhtoan=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]");
+	//Đăng kí thanh toán
+	By pTTToan=By.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div/table[1]/tbody/tr[2]/td[2]/span[1]/span/span[2]/span");
+	By pTTTienmat=By.xpath("/html[1]/body[1]/div[14]/div[1]/div[2]/ul[1]/li[3]");
+	By btnthanhtoanin=By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/footer[1]/button[1]");
+	
+	
 	
 	/* HOADONGIAOHANG ->THEM ->BANHANG */
 	//Mục BAOGIA
@@ -102,6 +110,31 @@ public class AddCustomer {
 		
 		this.driver=driver;
 		
+		}
+		public WebElement getbtnthanhtoan() 
+		{
+	
+			return driver.findElement(btnthanhtoan);
+		}
+		public WebElement getbtnthanhtoanin() 
+		{
+	
+			return driver.findElement(btnthanhtoanin);
+		}
+		public WebElement getpTTToan() 
+		{
+	
+			return driver.findElement(pTTToan);
+		}
+		public WebElement getpTTTienmat() 
+		{
+	
+			return driver.findElement(pTTTienmat);
+		}
+		public WebElement getsanphamthanhtoan() 
+		{
+	
+			return driver.findElement(sanphamthanhtoan);
 		}
 		public WebElement getthongbaotrue() 
 		{

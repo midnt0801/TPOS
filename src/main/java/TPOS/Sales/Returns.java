@@ -14,11 +14,11 @@ public class Returns {
 	By BtnThem=By.xpath("//button[@type='button'][contains(.,'Thêm')]");
 	By Khachhangbtn=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/span[2]/span[1]");
 	By Khachhangt3=By.xpath("/html/body/div[5]/div/div[2]/ul/li[2]");
-	By Khachhangt1=By.xpath("/html/body/div[5]/div/div[2]/ul/li[10]");
+	By Khachhangt1=By.xpath("/html[1]/body[1]/div[5]/div[1]/div[2]/ul[1]/li[8]");
 	By Banggia=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/span[1]/span[2]/span[1]");
 	By Banggia1=By.xpath("/html/body/div[6]/div/div[2]/ul/li[3]");
 	By PthucTT=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/span[1]/span[1]/span[2]");
-	By NgGH=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/input[1]");
+	By NgGH=By.xpath("//*[@id=\"app\"]/div[3]/div/div/div/div[2]/div/div/div[1]/div/div/div[5]/div/input");
 	By Sanpham1=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]");
 	By Sanpham2=By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[20]/td[2]");
 	By SLSP1=By.xpath("//*[@id=\"table_details\"]/tbody/tr/td[3]/span[1]/span/input[2]");

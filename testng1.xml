@@ -7,35 +7,11 @@
 <listeners>	
 <listener class-name="TPOS.LOGIN.Listener"/>
 </listeners>
-	
-
-
-  <test name="Validating User login">
-  
-    <classes>
-      <class name="TPOS.LOGIN.LoginHome"/>
-          </classes>
-      </test> 
       <test name = "Validating User Logout">
       <classes>
       <class name="TPOS.LOGIN.LogoutPage"/>
           </classes>    
       </test>
-    <test name="Validating title in the Page">
-         <classes>
-      <class name="TPOS.LOGIN.validateTitle"/>
-       </classes>
-      </test>
-         <test name="Validating navigation Bar">
-         <classes>
-      <class name="TPOS.LOGIN.validateNavigationBar"/>
-   </classes>
-      </test>
-       <test name="ReturnsPage">
-         <classes>
-      <class name="TPOS.LOGIN.ReturnsPage"/>
-   </classes>
-   
-      </test>
+
    <!-- Test -->
 </suite> <!-- Suite -->

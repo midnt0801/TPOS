@@ -3,14 +3,34 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TPOS.SALES.SalesPage_ThemHD">
+      <class name="COMPLETEDEXPORTS.ScriptLoginSalesLogout">
         <methods>
+          <include name="TimPPTT"/>
+          <include name="Chonbanggia"/>
+          <include name="Xoabanggia"/>
+          <include name="Xoakhohang"/>
+          <include name="Suakhachhang"/>
+          <include name="XoaPPTT"/>
+          <include name="Nhapkeysword"/>
           <include name="setDriver"/>
-          <include name="LuuKH"/>
+          <include name="Mothanhtoandonhang"/>
+          <include name="Chonkhachhang"/>
+          <include name="Themkhachhangmoi"/>
+          <include name="Detrongbanggia"/>
           <include name="tearDown"/>
-          <include name="Themkhachhangmoi" invocation-numbers="0 1 2 3"/>
+          <include name="loginTPOS"/>
+          <include name="MoTrangThemKH"/>
+          <include name="ChonPPTT"/>
+          <include name="Detrongkhohang"/>
+          <include name="Chonkhohang"/>
+          <include name="LogoutTPOS"/>
+          <include name="Nhapkeyswordkh"/>
+          <include name="Detrongkhachhang"/>
+          <include name="SearchKH"/>
+          <include name="TaohoadonKH"/>
+          <include name="thanhtoandonhang"/>
         </methods>
-      </class> <!-- TPOS.SALES.SalesPage_ThemHD -->
+      </class> <!-- COMPLETEDEXPORTS.ScriptLoginSalesLogout -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

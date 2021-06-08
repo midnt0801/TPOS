@@ -15,7 +15,7 @@ public class DataCustomer {
 		try {
 
 			projectPath=System.getProperty("user.dir");
-			workbook = new XSSFWorkbook(projectPath+"/data/Customerdiscorrect.xlsx");
+			workbook = new XSSFWorkbook(projectPath+"/data/Customercorrect.xlsx");
 			sheet = workbook.getSheet("Sheet1");
 			
 		} 
